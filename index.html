@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ettie Schreiber — Flutter Mobile Developer</title>
+  <meta name="description" content="Ettie Schreiber is a Flutter mobile developer with 10+ years of experience shipping iOS and Android apps." />
+  <meta name="keywords" content="Ettie Schreiber, Flutter developer, mobile developer, iOS, Android, Dart" />
+  <meta property="og:title" content="Ettie Schreiber — Flutter Mobile Developer" />
+  <meta property="og:description" content="10+ years shipping mobile apps. Currently focused on Flutter." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Tokens ─────────────────────────────────────── */
+    :root {
+      --bg:       #F7F5F2;
+      --surface:  #EFECEA;
+      --ink:      #1A1A1A;
+      --ink-2:    #555550;
+      --ink-3:    #999994;
+      --rule:     #D8D5D0;
+      --accent:   #2D6A4F;   /* muted forest green — not teal, not navy */
+      --mono:     "IBM Plex Mono", monospace;
+      --sans:     "IBM Plex Sans", system-ui, sans-serif;
+      --max:      1100px;
+      --pad:      clamp(32px, 10vw, 120px);
+    }
+
+    /* ── Reset ──────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* ── Layout ─────────────────────────────────────── */
+    .page {
+      max-width: var(--max, none);
+      margin: 0 auto;
+      padding: clamp(48px, 10vw, 96px) var(--pad);
+    }
+
+    /* ── Header ─────────────────────────────────────── */
+    .site-header {
+      margin-bottom: 72px;
+    }
+
+    .name {
+      font-family: var(--sans);
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .tagline {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.01em;
+    }
+
+    /* ── Sections ───────────────────────────────────── */
+    .section {
+      margin-bottom: 56px;
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 20px;
+    }
+
+    /* ── About ──────────────────────────────────────── */
+    .about p {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--ink);
+    }
+
+    /* ── Projects ───────────────────────────────────── */
+    .project {
+      padding: 20px 0;
+      border-top: 1px solid var(--rule);
+    }
+    .project:last-child {
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+
+    .project-name {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .project-link {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      text-decoration: none;
+      white-space: nowrap;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+    .project-link:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    .project-stack {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--ink-3);
+      margin-bottom: 8px;
+    }
+
+    .project-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--ink-2);
+      line-height: 1.6;
+    }
+
+    /* ── Skills ─────────────────────────────────────── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px 24px;
+      align-items: baseline;
+    }
+
+    .skill-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--ink-3);
+      white-space: nowrap;
+    }
+
+    .skill-value {
+      font-family: var(--sans);
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--ink-2);
+      line-height: 1.5;
+    }
+
+    /* ── Contact ────────────────────────────────────── */
+    .contact-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 2px;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .contact-link:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* ── Footer ─────────────────────────────────────── */
+    .site-footer {
+      margin-top: 80px;
+      padding-top: 24px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .footer-text {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--ink-3);
+    }
+
+    /* ── Focus / a11y ───────────────────────────────── */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    /* ── Reduced motion ─────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+
+    <header class="site-header">
+      <h1 class="name">Ettie Schreiber</h1>
+      <p class="tagline">Flutter · Mobile Developer · iOS &amp; Android</p>
+    </header>
+
+    <section class="section about" aria-labelledby="about-label">
+      <p class="section-label" id="about-label">About</p>
+      <p>
+        Mobile developer with 10+ years of shipped production apps across Android,
+        Codename One, and Flutter — three deliberate platform migrations, each driven
+        by a concrete product need. Focused on the mobile frontend: architecture,
+        state management, Firebase, and end-to-end release pipelines on both iOS and
+        Android. Based in New York.
+      </p>
+    </section>
+
+    <section class="section" aria-labelledby="projects-label">
+      <p class="section-label" id="projects-label">Projects</p>
+
+      <article class="project">
+        <div class="project-header">
+          <span class="project-name">Rabi Meir</span>
+          <a class="project-link" href="https://apps.apple.com/us/app/rabi-meir/id1611596391" target="_blank" rel="noopener">App Store ↗</a>
+        </div>
+        <p class="project-stack">Flutter · Firebase · Braintree · Shorebird</p>
+        <p class="project-desc">
+          Charitable giving app — ported from Android to Flutter in ~3 months.
+          Full iOS release pipeline including code signing, TestFlight QA, and
+          App Store submission. Integrated Braintree payments and Firebase
+          Analytics and Crashlytics.
+        </p>
+      </article>
+
+      <article class="project">
+        <div class="project-header">
+          <span class="project-name">HabitTrack</span>
+          <a class="project-link" href="https://github.com/eomapps/habittrack_flutter" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+        <p class="project-stack">Flutter · MVVM · Provider · Riverpod · sqflite</p>
+        <p class="project-desc">
+          Habit tracking app demonstrating production-ready Flutter architecture —
+          MVVM pattern, offline-first local persistence via sqflite, unit tested
+          with mockito. Includes a Riverpod branch implementing the same
+          architecture with a different state management approach.
+        </p>
+      </article>
+
+    </section>
+
+    <section class="section" aria-labelledby="skills-label">
+      <p class="section-label" id="skills-label">Skills</p>
+      <dl class="skills-grid">
+        <dt class="skill-label">Mobile</dt>
+        <dd class="skill-value">Flutter · Android · Codename One</dd>
+
+        <dt class="skill-label">Languages</dt>
+        <dd class="skill-value">Dart · Java</dd>
+
+        <dt class="skill-label">State</dt>
+        <dd class="skill-value">Provider · BLoC · Riverpod</dd>
+
+        <dt class="skill-label">Release</dt>
+        <dd class="skill-value">App Store Connect · Google Play · TestFlight · Code signing</dd>
+
+        <dt class="skill-label">Integrations</dt>
+        <dd class="skill-value">Firebase · Braintree · sqflite · REST APIs · Shorebird</dd>
+      </dl>
+    </section>
+
+    <section class="section" aria-labelledby="contact-label">
+      <p class="section-label" id="contact-label">Contact</p>
+      <nav class="contact-links" aria-label="Contact links">
+        <a class="contact-link" href="mailto:dev@ettieschreiber.com">dev@ettieschreiber.com</a>
+        <a class="contact-link" href="https://github.com/eomapps" target="_blank" rel="noopener">github.com/eomapps</a>
+      </nav>
+    </section>
+
+    <footer class="site-footer">
+      <p class="footer-text">Available for remote Flutter roles</p>
+    </footer>
+
+  </main>
+</body>
+</html>
