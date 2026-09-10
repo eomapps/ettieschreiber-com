@@ -152,6 +152,112 @@
       line-height: 1.6;
     }
 
+    .project-visual {
+      display: block;
+      grid-column: 2;
+      grid-row: 1 / span 4;
+      align-self: start;
+      width: 280px;
+      margin: 0;
+      border: 1px solid var(--rule);
+      background: var(--surface);
+    }
+
+    .project-visual img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 0.72;
+      object-fit: cover;
+      height: auto;
+      image-rendering: auto;
+    }
+
+    .project:not(.no-visual) {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 4px 36px;
+    }
+
+    .project:not(.no-visual) .project-header,
+    .project:not(.no-visual) .project-stack,
+    .project:not(.no-visual) .project-desc,
+    .project:not(.no-visual) .project-note {
+      grid-column: 1;
+    }
+
+    .project:nth-of-type(3) {
+      grid-template-columns: 280px 1fr;
+    }
+
+    .project:nth-of-type(3) .project-visual {
+      grid-column: 1;
+    }
+
+    .project:nth-of-type(3) .project-header,
+    .project:nth-of-type(3) .project-stack,
+    .project:nth-of-type(3) .project-desc,
+    .project:nth-of-type(3) .project-note {
+      grid-column: 2;
+    }
+
+    .project.no-visual .project-header,
+    .project.no-visual .project-stack,
+    .project.no-visual .project-desc,
+    .project.no-visual .project-note {
+      grid-column: 1 / -1;
+    }
+
+    .project-note {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--ink-2);
+      line-height: 1.55;
+    }
+
+    .project-note strong {
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    @media (max-width: 620px) {
+      .project {
+        display: block;
+      }
+
+      .project-visual {
+        width: min(100%, 320px);
+        margin: 0 0 16px;
+      }
+
+      .project-visual img {
+        aspect-ratio: auto;
+        object-fit: contain;
+      }
+    }
+
+    /* Compact homepage cards; detail pages carry the full project story. */
+    .project:not(.no-visual) {
+      grid-template-columns: 120px 1fr;
+      gap: 4px 24px;
+    }
+
+    .project:not(.no-visual) .project-visual,
+    .project:nth-of-type(3) .project-visual {
+      grid-column: 1;
+      width: 120px;
+    }
+
+    .project:not(.no-visual) .project-header,
+    .project:not(.no-visual) .project-stack,
+    .project:not(.no-visual) .project-desc,
+    .project:not(.no-visual) .project-note,
+    .project:nth-of-type(3) .project-header,
+    .project:nth-of-type(3) .project-stack,
+    .project:nth-of-type(3) .project-desc,
+    .project:nth-of-type(3) .project-note {
+      grid-column: 2;
+    }
+
     /* ── Skills ─────────────────────────────────────── */
     .skills-grid {
       display: grid;
@@ -237,18 +343,16 @@
     <section class="section about" aria-labelledby="about-label">
       <h2 class="section-label" id="about-label">About</h2>
       <p>
-        Mobile developer with 10+ years of shipped production apps across Android,
-        Codename One, and Flutter — three deliberate platform migrations, each driven
-        by a concrete product need. Focused on the mobile frontend: architecture,
-        state management, Firebase, and end-to-end release pipelines on both iOS and
-        Android. Based in New York.
+        I’m a mobile developer with 10+ years of experience across Android, Codename
+        One, and Flutter, specializing in mobile frontend development from app
+        architecture through release.
       </p>
     </section>
 
     <section class="section" aria-labelledby="projects-label">
       <h2 class="section-label" id="projects-label">Projects</h2>
 
-      <article class="project">
+      <article class="project no-visual">
         <div class="project-header">
           <span class="project-name">Rabi Meir</span>
           <a
@@ -269,6 +373,7 @@
           App Store submission. Integrated Braintree payments and Firebase
           Analytics and Crashlytics.
         </p>
+        <p class="project-note"><strong>Role:</strong> Built as a Brooklyn Web Center employee; public App Store listing provided by the employer.</p>
       </article>
 
       <article class="project">
@@ -276,22 +381,28 @@
           <span class="project-name">HabitTrack</span>
           <a
             class="project-link"
-            href="https://github.com/eomapps/habittrack_flutter"
-            target="_blank"
-            rel="noopener"
+            href="habittrack.html"
           >
-            GitHub ↗
+            View project ↗
           </a>
         </div>
 
         <p class="project-stack">Flutter · MVVM · Provider · Riverpod · sqflite</p>
 
+        <a class="project-visual" href="habittrack.html">
+          <span class="phone-frame">
+            <img src="https://raw.githubusercontent.com/eomapps/habittrack_flutter/main/docs/ios_home_habits.png" alt="HabitTrack home screen showing active habits" loading="lazy" />
+          </span>
+        </a>
+
         <p class="project-desc">
           Habit tracking app demonstrating production-ready Flutter architecture —
           MVVM pattern, offline-first local persistence via sqflite, unit tested
-          with mockito. Includes a Riverpod branch implementing the same
-          architecture with a different state management approach.
+          with mockito, and validated through GitHub Actions CI/CD with automated
+          analysis, tests, and Android release builds. Includes a Riverpod branch
+          implementing the same architecture with a different state management approach.
         </p>
+        <p class="project-note"><strong>Demonstrates:</strong> Offline-first data design, testable MVVM, platform-aware UI, and a dependable delivery pipeline.</p>
       </article>
 
       <article class="project">
@@ -299,45 +410,30 @@
           <span class="project-name">Art Explorer</span>
           <a
             class="project-link"
-            href="https://github.com/eomapps/artexplorer_flutter"
-            target="_blank"
-            rel="noopener"
+            href="artexplorer.html"
           >
-            GitHub ↗
+            View project ↗
           </a>
         </div>
 
         <p class="project-stack">Flutter · BLoC · REST API · Firebase Auth · Firestore</p>
 
+        <a class="project-visual" href="artexplorer.html">
+          <span class="phone-frame">
+            <img src="https://raw.githubusercontent.com/eomapps/artexplorer_flutter/main/docs/ios_browse.png" alt="Art Explorer browse screen showing artwork from the Art Institute of Chicago" loading="lazy" />
+          </span>
+        </a>
+
         <p class="project-desc">
           Flutter app for browsing the Art Institute of Chicago's public collection.
           Uses BLoC and repository architecture, Firebase Auth, and Firestore for
           personal collections that sync across devices. Browse, detail, and
-          collection flows are implemented; automated tests are still in progress.
+          collection flows are implemented, with an unauthenticated-save flow,
+          Firestore security rules, and automated BLoC test coverage.
         </p>
+        <p class="project-note"><strong>Demonstrates:</strong> Domain-focused state management, API integration, authenticated sync, and thoughtful unauthenticated flows.</p>
       </article>
 
-    </section>
-
-    <section class="section" aria-labelledby="skills-label">
-      <h2 class="section-label" id="skills-label">Skills</h2>
-
-      <dl class="skills-grid">
-        <dt class="skill-label">Mobile</dt>
-        <dd class="skill-value">Flutter · Android · Codename One</dd>
-
-        <dt class="skill-label">Languages</dt>
-        <dd class="skill-value">Dart · Java</dd>
-
-        <dt class="skill-label">State</dt>
-        <dd class="skill-value">Provider · BLoC · Riverpod</dd>
-
-        <dt class="skill-label">Release</dt>
-        <dd class="skill-value">App Store Connect · Google Play · TestFlight · Code signing</dd>
-
-        <dt class="skill-label">Integrations</dt>
-        <dd class="skill-value">Firebase · Braintree · sqflite · REST APIs · Shorebird</dd>
-      </dl>
     </section>
 
     <section class="section" aria-labelledby="contact-label">
@@ -360,7 +456,8 @@
     </section>
 
     <footer class="site-footer">
-      <p class="footer-text">Available for remote Flutter roles</p>
+      <p class="footer-text">Open to remote Flutter and mobile frontend opportunities, including contract, consulting, and full-time roles.</p>
+      <p class="footer-text">Also available for legacy Android maintenance and Android-to-Flutter migrations.</p>
     </footer>
 
   </main>
