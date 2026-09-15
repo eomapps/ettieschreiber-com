@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ettie Schreiber — Flutter Mobile Developer</title>
-  <meta name="description" content="Ettie Schreiber is a Flutter mobile developer with 10+ years of experience shipping iOS and Android apps." />
+  <title>Ettie Schreiber — Flutter Developer &amp; AI-Assisted Automation</title>
+  <meta name="description" content="Ettie Schreiber is a Flutter mobile developer with 10+ years of experience and an AI-assisted development practice grounded in architecture, testing, and review." />
   <meta name="keywords" content="Ettie Schreiber, Flutter developer, mobile developer, iOS, Android, Dart" />
-  <meta property="og:title" content="Ettie Schreiber — Flutter Mobile Developer" />
-  <meta property="og:description" content="10+ years shipping mobile apps. Currently focused on Flutter." />
+  <meta property="og:title" content="Ettie Schreiber — Flutter Developer &amp; AI-Assisted Automation" />
+  <meta property="og:description" content="Flutter mobile development and AI-assisted automation, backed by architecture, testing, and review discipline." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
@@ -337,15 +337,16 @@
 
     <header class="site-header">
       <h1 class="name">Ettie Schreiber</h1>
-      <p class="tagline">Flutter · Mobile Developer · iOS &amp; Android</p>
+      <p class="tagline">Flutter · Mobile Development · AI-Assisted Development</p>
     </header>
 
     <section class="section about" aria-labelledby="about-label">
       <h2 class="section-label" id="about-label">About</h2>
       <p>
         I’m a mobile developer with 10+ years of experience across Android, Codename
-        One, and Flutter, specializing in mobile frontend development from app
-        architecture through release.
+        One, and Flutter, building mobile frontends from app architecture through release.
+        I use AI-assisted implementation as a normal part of development, with my own
+        architecture, testing, and code review discipline guiding what ships.
       </p>
     </section>
 
@@ -436,6 +437,45 @@
 
     </section>
 
+    <section class="section" aria-labelledby="automation-label">
+      <h2 class="section-label" id="automation-label">Automation</h2>
+
+      <article class="project no-visual">
+        <div class="project-header">
+          <span class="project-name">Price Tracker</span>
+        </div>
+
+        <p class="project-stack">Python · Playwright · Cron · Slack API</p>
+
+        <p class="project-desc">
+          Independent Python scripts run daily on cron to watch nonstop flight searches
+          and tracked tour listings, a Mac Mini, and an external drive. A shared module
+          persists state and sends Slack alerts only when prices change, alerts on
+          scraper failures, and skips scheduled work around a recurring calendar rule
+          set; the Google Flights target uses Playwright because no public API exists.
+        </p>
+        <p class="project-note"><strong>Demonstrates:</strong> AI-assisted implementation with human-directed architecture and review — resilient unattended automation, failure alerting instead of silent breakage, and calendar-aware scheduling shared across personal automation projects.</p>
+      </article>
+
+      <article class="project no-visual">
+        <div class="project-header">
+          <span class="project-name">Reminders</span>
+        </div>
+
+        <p class="project-stack">Python · Calendar API · Cron · Slack API</p>
+
+        <p class="project-desc">
+          A deterministic, dependency-free Python script posts daily scheduled reminders
+          and calendar-aware context to Slack, adjusting timing around a recurring
+          calendar rule set and skipping certain days entirely. A companion nightly
+          digest tracks a personal recurring-task schedule; both run on cron tuned to
+          the local timezone.
+        </p>
+        <p class="project-note"><strong>Demonstrates:</strong> Engineering judgment about where an LLM belongs: AI-assisted development helped build and iterate the tool, while the shipped scheduled artifact stays LLM-free because deterministic work is more reliable that way.</p>
+      </article>
+
+    </section>
+
     <section class="section" aria-labelledby="contact-label">
       <h2 class="section-label" id="contact-label">Contact</h2>
 
@@ -458,6 +498,7 @@
     <footer class="site-footer">
       <p class="footer-text">Open to remote Flutter and mobile frontend opportunities, including contract, consulting, and full-time roles.</p>
       <p class="footer-text">Also available for legacy Android maintenance and Android-to-Flutter migrations.</p>
+      <p class="footer-text">Available for AI-assisted automation work: scripted integrations, scraping, and scheduled jobs.</p>
     </footer>
 
   </main>
